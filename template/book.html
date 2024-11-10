@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  /* Wrapper to center the form */
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background-color: #000; /* Black background for page */
+  }
+
+  .booking-form {
+    width: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+
+  .booking-form h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #000;
+  }
+
+  .booking-form form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+  }
+
+  .form-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+  }
+
+  .form-group label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #000;
+  }
+
+  .form-group select,
+  .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #d4af37; /* Golden color */
+      color: #333;
+      font-size: 0.9rem;
+      appearance: none; /* Remove default dropdown arrow on some browsers */
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-group input::placeholder {
+      color: #333;
+  }
+
+  .submit-btn {
+      grid-column: span 2;
+      padding: 10px 20px;
+      background-color: #d4af37; /* Golden color */
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .submit-btn:hover {
+      background-color: #c3972a;
+  }
+</style>
+
+<div class="form-wrapper">
+    <div class="booking-form">
+        <h2>Book Your Ticket - Ashbo Jabo</h2>
+        <form>
+            <div class="form-group">
+                <label for="from">From :</label>
+                <select id="from">
+                    <option>Dhaka</option>
+                    <option>Chittagong</option>
+                    <option>Sylhet</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="to">To :</label>
+                <select id="to">
+                    <option>Dhaka</option>
+                    <option>Chittagong</option>
+                    <option>Sylhet</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="mode">Mode Of Travel :</label>
+                <select id="mode">
+                    <option>Bus</option>
+                    <option>Train</option>
+                    <option>Plane</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="passengers">Number Of Passenger :</label>
+                <select id="passengers">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="departure">Departure date:</label>
+                <input type="text" id="departure" placeholder="dd/mm/yyyy">
+            </div>
+
+            <div class="form-group">
+                <label for="return">Return date:</label>
+                <input type="text" id="return" placeholder="dd/mm/yyyy">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Next</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
