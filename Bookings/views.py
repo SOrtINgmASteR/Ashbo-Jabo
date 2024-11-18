@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-# from .models import *
+from .models import *
 # from .forms import *
 
 
@@ -23,3 +23,9 @@ def log_in(request):
 
 def sign_up(request):
     return render(request, template_name='sign_up.html')
+
+
+def popular_destination(request):
+    popular_destinations = PopularDestination.objects.all()
+    context = {'popular_destinations': popular_destinations}
+    return render(request, template_name='popular_destination.html', context=context)
