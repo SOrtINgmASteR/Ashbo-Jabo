@@ -25,5 +25,9 @@ urlpatterns = [
     path('book/', book_view.book, name="book"),
     path('log_in/', book_view.log_in, name="log_in"),
     path('sign_up/', book_view.sign_up, name="sign_up"),
-    path('popular_destination', book_view.popular_destination, name="popular_destination")
+    path('popular_destination/', book_view.popular_destination, name="popular_destination"),
+    path('add_popular_destination/', book_view.add_popular_destination, name="add_popular_destination"),
+    path('delete_popular_destination/<str:id>', book_view.delete_popular_destination, name="delete_popular_destination"),
+    path('update_popular_destination/<str:id>', book_view.update_popular_destination, name="update_popular_destination"),
+
 ]

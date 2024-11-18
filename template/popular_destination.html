@@ -145,10 +145,10 @@
             <div class="card-title">{{ pd.departure_location }} - {{ pd.destination_location }}</div>
             <div class="card-title">Travel Time: {{ pd.travel_time_minimum }} - {{ pd.travel_time_maximum }} Hours</div>
             <div class="card-buttons">
-                <a href="{% url 'home' %}" class="wide-button">View Details</a>
+                <a href="{% url 'home' %}" class="wide-button">Book Ticket</a>
                 <div style="display: flex; justify-content: space-between;">
-                    <a href="{% url 'home' %}" class="half-button">Book</a>
-                    <a href="{% url 'home' %}" class="half-button">Delete</a>
+                    <a href="{% url 'update_popular_destination' pd.booking_id %}" class="half-button">Update</a>
+                    <a href="{% url 'delete_popular_destination' pd.booking_id %}" class="half-button">Delete</a>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@
 
 <!-- Add Popular Destination Button -->
 <div class="center-button-container">
-    <a href="{% url 'home' %}" class="add-destination-btn">Add Popular Destination</a>
+    <a href="{% url 'add_popular_destination' %}" class="add-destination-btn">Add Popular Destination</a>
 </div>
 
 {% endblock %}
