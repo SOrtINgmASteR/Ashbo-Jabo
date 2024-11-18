@@ -21,7 +21,8 @@ from Bookings import views as book_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', book_view.home, name="home"),
-    path('/about us', book_view.about_us, name="about_us"),
-    path('/popular destinations', book_view.popular_destinations, name="popular_destinations"),
-    path('/book', book_view.book, name="book"),
+    path('about_us/', book_view.about_us, name="about_us"),
+    path('book/', book_view.book, name="book"),
+    path('log_in/', book_view.log_in, name="log_in"),
+    path('sign_up/', book_view.sign_up, name="sign_up"),
 ]

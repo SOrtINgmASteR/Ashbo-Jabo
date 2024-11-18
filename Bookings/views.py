@@ -1,24 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
-from .models import *
+# from .models import *
+# from .forms import *
 
 
 def home(request):
     return render(request, template_name='home.html')
 
 
+def about_us(request):
+    return render(request, template_name='about_us.html')
+
+
 def book(request):
     return render(request, template_name='book.html')
 
 
-def popular_destinations(request):
-    popular_destination = PopularDestination.objects.all()
-    context = {
-        'popular_destination': popular_destination,
-    }
-    return render(request, template_name='popular_destinations.html', context=context)
+def log_in(request):
+    return render(request, template_name='log_in.html')
 
 
-def about_us(request):
-    return render(request, template_name='about_us.html')
+def sign_up(request):
+    return render(request, template_name='sign_up.html')
