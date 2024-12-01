@@ -146,19 +146,32 @@
             <div class="card-title">Travel Time: {{ pd.travel_time_minimum }} - {{ pd.travel_time_maximum }} Hours</div>
             <div class="card-buttons">
                 <a href="{% url 'home' %}" class="wide-button">Book Ticket</a>
-                <div style="display: flex; justify-content: space-between;">
-                    <a href="{% url 'update_popular_destination' pd.booking_id %}" class="half-button">Update</a>
-                    <a href="{% url 'delete_popular_destination' pd.booking_id %}" class="half-button">Delete</a>
-                </div>
+                {% if user.is_authenticated %}
+                    {% for group in user.groups.all %}
+                        {% if group.name == "management" %}
+                            <!-- Delete & Update button -->
+                            <div style="display: flex; justify-content: space-between;">
+                                <a href="{% url 'update_popular_destination' pd.booking_id %}" class="half-button">Update</a>
+                                <a href="{% url 'delete_popular_destination' pd.booking_id %}" class="half-button">Delete</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
+{% if user.is_authenticated %}
+    {% for group in user.groups.all %}
+        {% if group.name == "management" %}
+            <!-- Add Popular Destination Button -->
+            <div class="center-button-container">
+                <a href="{% url 'add_popular_destination' %}" class="add-destination-btn">Add Popular Destination</a>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
 
-<!-- Add Popular Destination Button -->
-<div class="center-button-container">
-    <a href="{% url 'add_popular_destination' %}" class="add-destination-btn">Add Popular Destination</a>
-</div>
 
 {% endblock %}
